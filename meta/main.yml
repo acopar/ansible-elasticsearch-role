@@ -1,5 +1,5 @@
 galaxy_info:
-  author: Tadej Janež
+  author: Genialis
   description: >
     Role to install and configure Elasticsearch 6.x on RHEL/CentOS 7.
 
