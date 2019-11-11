@@ -17,7 +17,7 @@
       Elasticsearch process' maximum number of open file descriptors is not set
       high enough (i.e. to more than 64000). For more info, see:
       https://www.elastic.co/guide/en/elasticsearch/guide/current/_file_descriptors_and_mmap.html
-  when: elasticsearch_process_res.json.nodes.values().0.process.max_file_descriptors | int < 64000
+  when: (elasticsearch_process_res.json.nodes.values() | list).0.process.max_file_descriptors | int < 64000
 
 - name: Get value of maximum number of memory map areas for a process
   command: sysctl --values vm.max_map_count
@@ -70,4 +70,4 @@
       Elasticsearch is not using compressed ordinary object pointers. Heap size
       is too large! For more info, see:
       https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html
-  when: elasticsearch_jvm_res.json.nodes.values().0.jvm.using_compressed_ordinary_object_pointers | bool == False
+  when: (elasticsearch_jvm_res.json.nodes.values() | list).0.jvm.using_compressed_ordinary_object_pointers | bool == False
