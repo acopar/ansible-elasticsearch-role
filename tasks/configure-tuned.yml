@@ -41,6 +41,6 @@
     dest: "{{ elasticsearch_tuned_profile_custom_conf }}"
     section: sysctl
     option: vm.swappiness
-    value: 1
+    value: "1"
   notify:
     - Restart tuned
