@@ -26,8 +26,8 @@
 - name: Remove other version of Elasticsearch
   package: name=elasticsearch state=absent
   when:
-    - not elasticsearch_version_res.stdout | match('package elasticsearch is not installed')
-    - not elasticsearch_version_res.stdout | search('^' + elasticsearch_version)
+    - not elasticsearch_version_res.stdout is match('package elasticsearch is not installed')
+    - not elasticsearch_version_res.stdout is search('^' + elasticsearch_version)
 
 - name: Install Elasticsearch
   package: name=elasticsearch state=present
