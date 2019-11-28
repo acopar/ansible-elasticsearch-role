@@ -33,7 +33,7 @@
 - name: Limit swapping to emergency memory situations
   sysctl:
     name: vm.swappiness
-    value: 1
+    value: "1"
     sysctl_file: "{{ elasticsearch_sysctl_file }}"
   when: not elasticsearch_tuned_service_enabled
 
